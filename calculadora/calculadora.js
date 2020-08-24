@@ -60,13 +60,32 @@ function init() {
         operador = "+";
         resultado = parseInt(display_resultado.value);
         display_resultado.value = "";
-
+    }
+    resta.onclick = function (e) {
+        operador = "-";
+        resultado = parseInt(display_resultado.value);
+        display_resultado.value = "";
+    }
+    multiplicacion.onclick = function (e) {
+        operador = "*";
+        resultado = parseInt(display_resultado.value);
+        display_resultado.value = "";
+    }
+    division.onclick = function (e) {
+        operador = "/";
+        resultado = parseInt(display_resultado.value);
+        display_resultado.value = "";
     }
     
     //simbolos
     igual.onclick = function(e){
         var valor_actual = parseInt(display_resultado.value);
         operacion(resultado, valor_actual, operador)
+    }
+    reset.onclick = function(e){
+        display_resultado.value = "";
+        resultado = 0;
+        operador = null;
     }
 }
 function operacion(valor, valor_actual, operacion) {
@@ -75,13 +94,13 @@ function operacion(valor, valor_actual, operacion) {
             display_resultado.value = suma(valor, valor_actual);
             break;
         case "-":
-
+            display_resultado.value = resta(valor, valor_actual);
             break;
         case "*":
-
+            display_resultado.value = multiplicacion(valor, valor_actual);
             break;
         case "/":
-
+            display_resultado.value = division(valor, valor_actual);
             break;
         default:
             break;
@@ -90,6 +109,18 @@ function operacion(valor, valor_actual, operacion) {
 
 function suma(valor1, valor2) {
     var resultado = (valor1 + valor2);
+    return resultado;
+}
+function resta(valor1, valor2) {
+    var resultado = (valor1 - valor2);
+    return resultado;
+}
+function multiplicacion(valor1, valor2) {
+    var resultado = (valor1 * valor2);
+    return resultado;
+}
+function division(valor1, valor2) {
+    var resultado = (valor1 / valor2);
     return resultado;
 }
 
